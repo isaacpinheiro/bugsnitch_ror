@@ -1,0 +1,17 @@
+<div id="contato_div" ng-controller="ContatoController">
+  <h1 class="intro_text">Contato</h1>
+  <div id="enviar_div">
+    <form class="enviar_form">
+      <ul>
+        <li>
+          <input type="text" placeholder="Nome" ng-model="nome" />
+          <input type="text" placeholder="Telefone" ng-model="telefone" />
+        </li>
+        <li><input type="text" placeholder="E-mail" ng-model="email" style="width: 615px;" /></li>
+        <li><textarea placeholder="Mensagem" ng-model="mensagem"></textarea></li>
+        <li><button ng-click="Enviar()">Enviar</button></li>
+        <p class="error_msg">{{ errMsg }}</p>
+      </ul>
+    </form>
+  </div>
+</div>

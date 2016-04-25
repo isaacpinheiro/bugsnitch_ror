@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="bugsnitch">
+  <head>
+    <meta charset="utf-8">
+    <title>BugSnitch</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+  <body ng-controller="AccessController">
+    <div id="header">
+      <h1 class="title"><a href="#/">BugSnitch</a></h1>
+      <div id="main_menu">
+        <ul>
+          <li><a href="#/sobre">Sobre Nós</a></li>
+          <li><a href="#/equipe">Equipe</a></li>
+          <li><a href="#/contato">Contato</a></li>
+        </ul>
+      </div>
+      <div id="access_menu">
+        <ul>
+          <li><button ng-click="SignIn()">Sign In</button></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content" ng-view></div>
+    <div id="footer">
+      <span>© 2016 BugSnitch</span>
+      <div id="footer_menu">
+        <ul>
+          <li><a href="#/termos">Termos de Uso</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

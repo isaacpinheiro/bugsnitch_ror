@@ -1,0 +1,12 @@
+<div id="signin_div" ng-controller="SignInController">
+  <div id="signin_form_div">
+    <form class="signin_form">
+      <ul>
+        <li><input type="text" placeholder="E-mail" ng-model="email" /></li>
+        <li><input type="password" placeholder="Nova Senha" ng-model="senha" /></li>
+        <li><button ng-click="Entrar()">Entrar</button></li>
+        <p class="error_msg">{{ errMsg }}</p>
+      </ul>
+    </form>
+  </div>
+</div>

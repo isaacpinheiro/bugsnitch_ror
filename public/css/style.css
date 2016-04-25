@@ -1,0 +1,354 @@
+@charset "utf-8";
+
+* {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+body {
+  background: #ffffff;
+  font-family: "Arial";
+  font-size: 12px;
+  color: #000000;
+}
+
+p {
+  font-family: "Arial";
+  font-size: 12px;
+  color: #000000;
+}
+
+img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+@media all {
+
+  #header {
+    position: relative;
+    width: 1000px;
+    height: 50px;
+    margin-left: -500px;
+    left: 50%;
+  }
+
+  .title {
+    position: fixed;
+    margin-top: 10px;
+    font-family: "Verdana";
+    font-size: 20px;
+    float: left;
+  }
+
+  .title>a {
+    color: #666666;
+  }
+
+  #main_menu {
+    position: fixed;
+    margin: 15px 0px 0px 120px;
+  }
+
+  #main_menu>ul>li {
+    float: left;
+    margin-left: 30px;
+  }
+
+  #main_menu>ul>li>a {
+    font-family: "Verdana";
+    font-size: 14px;
+    color: #333333;
+  }
+
+  #main_menu>ul>li>a:hover {
+    color: #0099ff;
+  }
+
+  #access_menu {
+    position: relative;
+    margin-top: 10px;
+    float: right;
+  }
+
+  #access_menu>ul>li {
+    float: left;
+  }
+
+  #access_menu>ul>li>button {
+    background: #0099ff;
+    border: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  #access_menu>ul>li>button:hover {
+    background: #009999;
+  }
+
+  #content {
+    position: relative;
+    background: #8888ff;
+    width: 100%;
+    min-height: 500px;
+  }
+
+  #footer {
+    position: relative;
+    width: 1000px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: -500px;
+    left: 50%;
+  }
+
+  #footer>span {
+    float: left;
+  }
+
+  #footer_menu {
+    float: left;
+    margin-left: 30px;
+  }
+
+  #footer_menu>ul>li>a {
+    color: #333333;
+  }
+
+  #footer_menu>ul>li>a:hover {
+    color: #0099ff;
+  }
+
+  .intro_text {
+    position: fixed;
+    color: #ffffff;
+    font-size: 40px;
+    margin-top: 20px;
+    width: 800px;
+    margin-left: -400px;
+    left: 50%;
+    text-align: center;
+  }
+
+  #signup_div {
+    position: fixed;
+    background: #eeeeee;
+    width: 400px;
+    height: 300px;
+    margin-top: 150px;
+    margin-left: -200px;
+    left: 50%;
+    border-radius: 10px;
+  }
+
+  .signup_form>ul {
+    margin-top: 30px;
+    margin-left: 45px;
+  }
+
+  .signup_form>ul>li {
+    margin-bottom: 10px;
+  }
+
+  .signup_form>ul>li>input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #0099ff;
+    border-radius: 20px;
+    padding-left: 10px;
+  }
+
+  .signup_form>ul>li>button {
+    background: #0099ff;
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .signup_form>ul>li>button:hover {
+    background: #009999;
+  }
+
+  .error_msg {
+    color: #ff0000;
+  }
+
+  #sobre_content {
+    position: fixed;
+    width: 820px;
+    margin-top: 100px;
+    margin-left: -410px;
+    left: 50%;
+  }
+
+  .sobre_text {
+    float: left;
+    width: 400px;
+    height: 300px;
+    color: #ffffff;
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  .code_img {
+    position: relative;
+    float: left;
+    width: 400px;
+    height: 300px;
+    opacity: 0.6;
+  }
+
+  #enviar_div {
+    position: fixed;
+    background: #eeeeee;
+    width: 720px;
+    height: 300px;
+    margin-top: 100px;
+    margin-left: -360px;
+    left: 50%;
+    border-radius: 10px;
+  }
+
+  .enviar_form>ul {
+    margin-top: 30px;
+    margin-left: 45px;
+  }
+
+  .enviar_form>ul>li {
+    margin-bottom: 10px;
+  }
+
+  .enviar_form>ul>li>input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #0099ff;
+    border-radius: 20px;
+    padding-left: 10px;
+  }
+
+  .enviar_form>ul>li>textarea {
+    width: 615px;
+    height: 80px;
+    border: 1px solid #0099ff;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
+  .enviar_form>ul>li>button {
+    background: #0099ff;
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .enviar_form>ul>li>button:hover {
+    background: #009999;
+  }
+
+  #equipe_img_div {
+    position: fixed;
+    width: 600px;
+    margin-top:100px;
+    margin-left: -300px;
+    left: 50%;
+  }
+
+  #equipe_img_div>table>tr {
+    margin-bottom: 40px;
+  }
+
+  #equipe_img_div>table>tr>td {
+    margin-right: 10px;
+  }
+
+  .equipe_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+  }
+
+  .equipe_nome {
+    color: #ffffff;
+  }
+
+  .equipe_cargo {
+    color: #333333;
+  }
+
+  #termos_content {
+    position: fixed;
+    width: 600px;
+    margin-top:100px;
+    margin-left: -300px;
+    left: 50%;
+  }
+
+  .termos_text {
+    color: #ffffff;
+    font-size: 16px;
+  }
+
+  #signin_form_div {
+    position: fixed;
+    background: #eeeeee;
+    width: 400px;
+    height: 200px;
+    margin-top: 150px;
+    margin-left: -200px;
+    left: 50%;
+    border-radius: 10px;
+  }
+
+  .signin_form>ul {
+    margin-top: 30px;
+    margin-left: 45px;
+  }
+
+  .signin_form>ul>li {
+    margin-bottom: 10px;
+  }
+
+  .signin_form>ul>li>input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #0099ff;
+    border-radius: 20px;
+    padding-left: 10px;
+  }
+
+  .signin_form>ul>li>button {
+    background: #0099ff;
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .signin_form>ul>li>button:hover {
+    background: #009999;
+  }
+
+}

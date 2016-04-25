@@ -1,0 +1,15 @@
+<div id="main_div" ng-controller="MainController">
+  <h1 class="intro_text">BugSnitch, ajudando no desenvolvimento de softwares sem bugs.</h1>
+  <div id="signup_div">
+    <form class="signup_form">
+      <ul>
+        <li><input type="text" placeholder="Nome" ng-model="nome" /></li>
+        <li><input type="text" placeholder="E-mail" ng-model="email" /></li>
+        <li><input type="password" placeholder="Nova Senha" ng-model="senha" /></li>
+        <li><input type="password" placeholder="Confirme a Senha" ng-model="confSenha" /></li>
+        <li><button ng-click="Cadastrar()">Cadastrar</button></li>
+        <p class="error_msg">{{ errMsg }}</p>
+      </ul>
+    </form>
+  </div>
+</div>
