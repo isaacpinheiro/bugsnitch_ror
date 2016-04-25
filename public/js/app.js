@@ -129,7 +129,7 @@ app.controller('MainController', function($scope, $http, $window){
       };
 
       $http({
-        url: '/usuarios.json',
+        url: 'usuarios.json',
         method: 'POST',
         data: $scope.usuario
       })
