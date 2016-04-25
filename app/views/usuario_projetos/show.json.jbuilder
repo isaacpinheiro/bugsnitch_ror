@@ -1,1 +1,1 @@
-json.extract! @usuario_projeto, :id_usuario_projeto, :status, :id_usuario, :id_projeto
+json.extract! @usuario_projeto, :id, :status, :id_usuario, :id_projeto

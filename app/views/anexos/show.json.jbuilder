@@ -1,1 +1,1 @@
-json.extract! @anexo, :id_comentario, :arquivo, :id_registro, :id_comentario
+json.extract! @anexo, :id, :arquivo, :id_registro, :id_comentario

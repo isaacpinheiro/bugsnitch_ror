@@ -81,7 +81,7 @@ app.controller('SignInController', function($scope){
 
 });
 
-app.controller('MainController', function($scope, $window, $http, usuarioService){
+app.controller('MainController', function($scope, $http, $window){
 
   $scope.errMsg = '';
   $scope.nome = '';
@@ -128,16 +128,17 @@ app.controller('MainController', function($scope, $window, $http, usuarioService
         senha: $scope.senha
       };
 
-      $http.defaults.useXDomain = true;
-
-      usuarioService.save($scope.usuario).$promise.then(
-        function(){
-          $window.location.href = '#/dashboard';
-        },
-        function(){
-          $scope.errMsg = 'Error!';
-        }
-      );
+      $http({
+        url: '/usuarios.json',
+        method: 'POST',
+        data: $scope.usuario
+      })
+      .then(function(response){
+        $window.location.href = '#/dashboard';
+      })
+      .then(function(response){
+        $scope.errMsg = 'Error';
+      });
 
     }
 
@@ -188,12 +189,4 @@ app.controller('ContatoController', function($scope){
 
   };
 
-});
-
-app.factory('usuarioService', function($resource){
-  return $resource('http://localhost:8080/bugsnitch/service/usuario/:id');
-});
-
-app.factory('usuarioProjetoService', function($resource){
-  return $resource('http://localhost:8080/bugsnitch/service/usuarioprojeto/:id');
 });
