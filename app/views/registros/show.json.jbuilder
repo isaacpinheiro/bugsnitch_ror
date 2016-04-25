@@ -1,1 +1,1 @@
-json.extract! @registro, :id, :data_hora, :resumo, :prioridade, :severidade, :status, :usuario_projeto_id, :created_at, :updated_at
+json.extract! @registro, :id_registro, :data_hora, :resumo, :prioridade, :severidade, :status, :id_usuario_projeto
