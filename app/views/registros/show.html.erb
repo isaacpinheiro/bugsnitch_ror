@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data hora:</strong>
+  <%= @registro.data_hora %>
+</p>
+
+<p>
+  <strong>Resumo:</strong>
+  <%= @registro.resumo %>
+</p>
+
+<p>
+  <strong>Prioridade:</strong>
+  <%= @registro.prioridade %>
+</p>
+
+<p>
+  <strong>Severidade:</strong>
+  <%= @registro.severidade %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @registro.status %>
+</p>
+
+<p>
+  <strong>Usuario projeto:</strong>
+  <%= @registro.usuario_projeto %>
+</p>
+
+<%= link_to 'Edit', edit_registro_path(@registro) %> |
+<%= link_to 'Back', registros_path %>

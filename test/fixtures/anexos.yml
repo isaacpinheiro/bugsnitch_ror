@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arquivo: MyText
+  registro_id: 
+  comentario_id: 
+
+two:
+  arquivo: MyText
+  registro_id: 
+  comentario_id: 

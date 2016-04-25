@@ -1,0 +1,29 @@
+<%= form_for(@anexo) do |f| %>
+  <% if @anexo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anexo.errors.count, "error") %> prohibited this anexo from being saved:</h2>
+
+      <ul>
+      <% @anexo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :arquivo %><br>
+    <%= f.text_area :arquivo %>
+  </div>
+  <div class="field">
+    <%= f.label :registro_id %><br>
+    <%= f.text_field :registro_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comentario_id %><br>
+    <%= f.text_field :comentario_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

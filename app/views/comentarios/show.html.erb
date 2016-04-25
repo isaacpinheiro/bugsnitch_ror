@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Texto comentario:</strong>
+  <%= @comentario.texto_comentario %>
+</p>
+
+<p>
+  <strong>Data hora:</strong>
+  <%= @comentario.data_hora %>
+</p>
+
+<p>
+  <strong>Registro:</strong>
+  <%= @comentario.registro %>
+</p>
+
+<p>
+  <strong>Usuario projeto:</strong>
+  <%= @comentario.usuario_projeto %>
+</p>
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', comentarios_path %>

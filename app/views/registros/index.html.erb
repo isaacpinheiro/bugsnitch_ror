@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data hora</th>
+      <th>Resumo</th>
+      <th>Prioridade</th>
+      <th>Severidade</th>
+      <th>Status</th>
+      <th>Usuario projeto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registros.each do |registro| %>
+      <tr>
+        <td><%= registro.data_hora %></td>
+        <td><%= registro.resumo %></td>
+        <td><%= registro.prioridade %></td>
+        <td><%= registro.severidade %></td>
+        <td><%= registro.status %></td>
+        <td><%= registro.usuario_projeto %></td>
+        <td><%= link_to 'Show', registro %></td>
+        <td><%= link_to 'Edit', edit_registro_path(registro) %></td>
+        <td><%= link_to 'Destroy', registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Registro', new_registro_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyText
+  area: MyText
+  status: false
+  data_inicio: 2016-04-25 02:33:37
+  data_fim: 2016-04-25 02:33:37
+
+two:
+  descricao: MyText
+  area: MyText
+  status: false
+  data_inicio: 2016-04-25 02:33:37
+  data_fim: 2016-04-25 02:33:37

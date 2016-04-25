@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  texto_comentario: MyText
+  data_hora: 2016-04-25 02:50:18
+  registro_id: 
+  usuario_projeto_id: 
+
+two:
+  texto_comentario: MyText
+  data_hora: 2016-04-25 02:50:18
+  registro_id: 
+  usuario_projeto_id: 
