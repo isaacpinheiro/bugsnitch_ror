@@ -36,12 +36,25 @@ app.config(['$routeProvider', function($routeProvider){
 
 }]);
 
-app.controller('AccessController', function($scope, $window){
+app.controller('AccessController', function($scope, $rootScope, $window){
 
-  $scope.logged = false;
+  $scope.logged = true;
+  $scope.usuario = null;
 
   $scope.SignIn = function(){
     $window.location.href = '#/signin';
+  };
+
+  $scope.$on('conectar', function(event, usuarioObj){
+    $scope.logged = true;
+    $scope.usuario = usuarioObj;
+  });
+
+  $scope.SignOut = function(){
+    $scope.logged = false;
+    $scope.usuario = null;
+    $window.location.href = '#/';
+    $rootScope.$broadcast('dash_out');
   };
 
 });
@@ -81,7 +94,7 @@ app.controller('SignInController', function($scope){
 
 });
 
-app.controller('MainController', function($scope, $http, $window){
+app.controller('MainController', function($scope, $rootScope, $http, $window){
 
   $scope.errMsg = '';
   $scope.nome = '';
@@ -134,6 +147,8 @@ app.controller('MainController', function($scope, $http, $window){
         data: $scope.usuario
       })
       .then(function(response){
+        $rootScope.$broadcast('conectar', $scope.usuario);
+        $rootScope.$broadcast('dash_in', $scope.usuario);
         $window.location.href = '#/dashboard';
       })
       .then(function(response){
@@ -191,10 +206,19 @@ app.controller('ContatoController', function($scope){
 
 });
 
-app.controller('DashboardController', function($scope){
+app.controller('DashboardController', function($scope, $window){
 
-  $scope.nome = 'Isaac Pinheiro';
-  $scope.email = 'zack_pinheiro@hotmail.com';
+  $scope.$on('dash_in', function(event, usuarioObj){
+    $scope.usuario = usuarioObj;
+  });
+
+  $scope.$on('dash_out', function(){
+    $scope.usuario = null;
+  });
+
+  if($scope.usuario == null){
+    $window.location.href = '#/';
+  }
 
   $scope.projeto = [
     {
