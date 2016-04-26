@@ -59,11 +59,12 @@ app.controller('AccessController', function($scope, $rootScope, $window){
 
 });
 
-app.controller('SignInController', function($scope){
+app.controller('SignInController', function($scope, $rootScope, $http, $window){
 
   $scope.errMsg = '';
   $scope.email = '';
   $scope.senha = '';
+  $scope.usuario = null;
 
   $scope.Entrar = function(){
 
@@ -84,9 +85,38 @@ app.controller('SignInController', function($scope){
     }else {
 
       $scope.errMsg = '';
-      alert('Entrar');
 
-      // TODO
+      $http({
+        url: 'usuarios.json',
+        method: 'GET',
+      })
+      .then(function(response){
+
+        for(var i=0; i<response.data.length; i++){
+          if(response.data[i].email == $scope.email){
+            $scope.usuario = response.data[i];
+            break;
+          }
+        }
+
+        if($scope.usuario != null){
+
+          if($scope.usuario.senha != $scope.senha){
+            $scope.errMsg = 'Usuário ou senha incorretos.';
+          }else{
+            $rootScope.$broadcast('conectar', $scope.usuario);
+            $rootScope.$broadcast('dash_in', $scope.usuario);
+            $window.location.href = '#/dashboard';
+          }
+
+        }else{
+          $scope.errMsg = 'Usuário inexistente.';
+        }
+
+      })
+      .then(function(response){
+
+      });
 
     }
 
