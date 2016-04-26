@@ -38,7 +38,7 @@ app.config(['$routeProvider', function($routeProvider){
 
 app.controller('AccessController', function($scope, $rootScope, $window){
 
-  $scope.logged = true;
+  $scope.logged = false;
   $scope.usuario = null;
 
   $scope.SignIn = function(){

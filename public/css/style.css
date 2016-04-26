@@ -93,6 +93,14 @@ ul, li {
     cursor: pointer;
   }
 
+  #access_menu>ul>li>a {
+    color: #009999;
+  }
+
+  #access_menu>ul>li>a:hover {
+    text-decoration: underline;
+  }
+
   #access_menu>ul>li>button:hover {
     background: #009999;
   }

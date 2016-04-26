@@ -22,7 +22,7 @@
       <div id="access_menu">
         <ul>
           <li ng-show="logged" style="margin-top: 8px; margin-right: 25px;">
-            <a href="#/dashboard" style="color: #009999;">{{ usuario.nome }}</a>
+            <a href="#/dashboard">{{ usuario.nome }}</a>
           </li>
           <li ng-show="logged"><button ng-click="SignOut()">Sing Out</button></li>
           <li ng-hide="logged"><button ng-click="SignIn()">Sign In</button></li>
