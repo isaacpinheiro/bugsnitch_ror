@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contatos
   resources :anexos
   resources :comentarios
   resources :registros
