@@ -198,7 +198,7 @@ app.controller('MainController', function($scope, $rootScope, $http, $window){
 
 });
 
-app.controller('ContatoController', function($scope){
+app.controller('ContatoController', function($scope, $http){
 
   $scope.errMsg = '';
   $scope.nome = '';
@@ -233,9 +233,23 @@ app.controller('ContatoController', function($scope){
     }else{
 
       $scope.errMsg = '';
-      alert('Enviar');
 
-      // TODO
+      $scope.emailObj = {
+        subject: 'Mensagem de Contato - BugSnitch',
+        message: 'Nome: '+$scope.nome+'\nTelefone: '+$scope.telefone+'\nE-mail: '+$scope.email+'\nMensage:\n'+$scope.mensagem
+      }
+
+      $http({
+        url: 'contatos.json',
+        method: 'POST',
+        data: $scope.emailObj
+      })
+      .then(function(response){
+        $scope.errMsg = 'Informações enviadas com sucesso.';
+      })
+      .then(function(response){
+
+      });
 
     }
 
