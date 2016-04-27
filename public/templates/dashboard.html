@@ -1,8 +1,8 @@
 <div id="dashboard_div" ng-controller="DashboardController">
   <div id="dashboard_content">
     <div id="ident_div">
-      <p>Nome: {{ usuario.nome }}</p>
-      <p>E-mail: {{ usuario.email }}</p>
+      <p>Nome: {{ nome }}</p>
+      <p>E-mail: {{ email }}</p>
     </div>
     <div id="dash_btn">
       <a ng-click="ProjectDiv()">Projetos</a>
@@ -41,16 +41,26 @@
           <ul>
             <li><input type="text" placeholder="Nome" ng-model="usuario.nome" /></li>
             <li><input type="text" placeholder="E-mail" ng-model="usuario.email" /></li>
-            <li><input type="password" placeholder="Nova Senha" ng-model="usuario.senha" /></li>
+            <li><input type="password" placeholder="Senha" ng-model="usuario.senha" /></li>
             <li><input type="password" placeholder="Confirme a Senha" ng-model="confSenha" /></li>
             <li><button ng-click="Alterar()">Alterar</button></li>
-            <p class="error_msg">{{ errMsg }}</p>
+            <p class="error_msg">{{ alterarErrMsg }}</p>
           </ul>
         </form>
       </div>
     </div>
     <div id="dash_deletar_conta_div" ng-show="deletarContaDiv">
       <h1>Deletar conta</h1>
+      <div id="deletar_div">
+        <form class="deletar_form">
+          <ul>
+            <li><input type="password" placeholder="Senha" ng-model="delSenha" /></li>
+            <li><input type="password" placeholder="Confirme a Senha" ng-model="delConfSenha" /></li>
+            <li><button ng-click="Deletar()">Deletar</button></li>
+            <p class="error_msg">{{ deletarErrMsg }}</p>
+          </ul>
+        </form>
+      </div>
       <br />
     </div>
   </div>

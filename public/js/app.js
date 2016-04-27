@@ -50,6 +50,13 @@ app.controller('AccessController', function($scope, $rootScope, $window){
     $scope.usuario = usuarioObj;
   });
 
+  $scope.$on('desconectar', function(){
+    $scope.logged = false;
+    $scope.usuario = null;
+    $window.location.href = '#/';
+    $rootScope.$broadcast('dash_out');
+  });
+
   $scope.SignOut = function(){
     $scope.logged = false;
     $scope.usuario = null;
@@ -150,7 +157,7 @@ app.controller('MainController', function($scope, $rootScope, $http, $window){
 
     }else if($scope.senha == ''){
 
-      $scope.errMsg = 'Por favor, informa a sua nova senha.';
+      $scope.errMsg = 'Por favor, informe a sua nova senha.';
 
     }else if($scope.confSenha == ''){
 
@@ -236,7 +243,7 @@ app.controller('ContatoController', function($scope){
 
 });
 
-app.controller('DashboardController', function($scope, $window){
+app.controller('DashboardController', function($scope, $http, $window, $rootScope){
 
   $scope.projetoDiv = true;
   $scope.alterarContaDiv = false;
@@ -254,7 +261,8 @@ app.controller('DashboardController', function($scope, $window){
     $window.location.href = '#/';
   }
 
-  $scope.confSenha = $scope.usuario.senha;
+  $scope.nome = $scope.usuario.nome;
+  $scope.email = $scope.usuario.email;
 
   $scope.ProjectDiv = function(){
     $scope.projetoDiv = true;
@@ -272,6 +280,94 @@ app.controller('DashboardController', function($scope, $window){
     $scope.projetoDiv = false;
     $scope.alterarContaDiv = false;
     $scope.deletarContaDiv = true;
+  };
+
+  $scope.alterarErrMsg = '';
+  $scope.deletarErrMsg = '';
+
+  $scope.Alterar = function(){
+
+    var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+    if($scope.usuario.nome == ''){
+
+      $scope.errMsg = 'Por favor, informe o seu nome.';
+
+    }else if($scope.usuario.email == ''){
+
+      $scope.errMsg = 'Por favor, informe o seu E-mail.';
+
+    }else if(!filter.test($scope.usuario.email)){
+
+      $scope.errMsg = 'Por favor, informe um E-mail válido';
+
+    }else if($scope.usuario.senha == ''){
+
+      $scope.errMsg = 'Por favor, informa a sua senha.';
+
+    }else if($scope.confSenha == ''){
+
+      $scope.errMsg = 'Por favor, confirme a sua senha.';
+
+    }else if($scope.confSenha != $scope.usuario.senha){
+
+      $scope.errMsg = 'A confirmação está diferente da senha.';
+
+    }else{
+
+      $scope.alterarErrMsg = '';
+
+      $http({
+        url: 'usuarios/' + $scope.usuario.id + '.json',
+        method: 'PUT',
+        data: $scope.usuario
+      })
+      .then(function(response){
+        $scope.alterarErrMsg = 'Informações alteradas com sucesso.';
+      })
+      .then(function(response){
+
+      });
+
+    }
+
+  };
+
+  $scope.Deletar = function(){
+
+    if($scope.delSenha == ''){
+
+      $scope.deletarErrMsg = 'Por favor, informe a sua senha.';
+
+    }else if($scope.delConfSenha == ''){
+
+      $scope.deletarErrMsg = 'Por favor, confirme a sua senha.';
+
+    }else if($scope.delConfSenha != $scope.delSenha){
+
+      $scope.deletarErrMsg = 'A confirmação está diferente da senha.';
+
+    }else if($scope.usuario.senha != $scope.delConfSenha){
+
+      $scope.deletarErrMsg = 'Senha incorreta.';
+
+    }else{
+
+      $scope.deletarErrMsg = '';
+
+      $http({
+        url: 'usuarios/' + $scope.usuario.id + '.json',
+        method: 'DELETE'
+      })
+      .then(function(response){
+        $rootScope.$broadcast('desconectar');
+      })
+      .then(function(response){
+
+      });
+
+    }
+
   };
 
   $scope.projeto = [
