@@ -238,6 +238,10 @@ app.controller('ContatoController', function($scope){
 
 app.controller('DashboardController', function($scope, $window){
 
+  $scope.projetoDiv = true;
+  $scope.alterarContaDiv = false;
+  $scope.deletarContaDiv = false;
+
   $scope.$on('dash_in', function(event, usuarioObj){
     $scope.usuario = usuarioObj;
   });
@@ -249,6 +253,26 @@ app.controller('DashboardController', function($scope, $window){
   if($scope.usuario == null){
     $window.location.href = '#/';
   }
+
+  $scope.confSenha = $scope.usuario.senha;
+
+  $scope.ProjectDiv = function(){
+    $scope.projetoDiv = true;
+    $scope.alterarContaDiv = false;
+    $scope.deletarContaDiv = false;
+  };
+
+  $scope.AlterarDiv = function(){
+    $scope.projetoDiv = false;
+    $scope.alterarContaDiv = true;
+    $scope.deletarContaDiv = false;
+  };
+
+  $scope.DeletarDiv = function(){
+    $scope.projetoDiv = false;
+    $scope.alterarContaDiv = false;
+    $scope.deletarContaDiv = true;
+  };
 
   $scope.projeto = [
     {

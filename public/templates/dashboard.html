@@ -5,11 +5,11 @@
       <p>E-mail: {{ usuario.email }}</p>
     </div>
     <div id="dash_btn">
-      <a>Projetos</a>
-      <a>Alterar informações da sua conta</a>
-      <a>Download</a>
+      <a ng-click="ProjectDiv()">Projetos</a>
+      <a ng-click="AlterarDiv()">Alterar informações da sua conta</a>
+      <a href="/download/Bugsnitch.tar.gz">Download</a>
     </div>
-    <div id="dash_projeto_div">
+    <div id="dash_projeto_div" ng-show="projetoDiv">
       <h1>Projetos</h1>
       <br />
       <table width="900">
@@ -32,6 +32,26 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div id="dash_alterar_conta_div" ng-show="alterarContaDiv">
+      <h3>Alterar informações da sua conta</h3>
+      <a ng-click="DeletarDiv()" class="deletar_btn">Deletar Conta</a>
+      <div id="alterar_div">
+        <form class="alterar_form">
+          <ul>
+            <li><input type="text" placeholder="Nome" ng-model="usuario.nome" /></li>
+            <li><input type="text" placeholder="E-mail" ng-model="usuario.email" /></li>
+            <li><input type="password" placeholder="Nova Senha" ng-model="usuario.senha" /></li>
+            <li><input type="password" placeholder="Confirme a Senha" ng-model="confSenha" /></li>
+            <li><button ng-click="Alterar()">Alterar</button></li>
+            <p class="error_msg">{{ errMsg }}</p>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <div id="dash_deletar_conta_div" ng-show="deletarContaDiv">
+      <h1>Deletar conta</h1>
+      <br />
     </div>
   </div>
 </div>
