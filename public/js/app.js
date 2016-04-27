@@ -370,117 +370,55 @@ app.controller('DashboardController', function($scope, $http, $window, $rootScop
 
   };
 
-  $scope.projeto = [
-    {
+  $scope.usuario_projetos = [];
+  $scope.projetos = [];
 
-      "id": 1,
-      "descricao": "Site da Melro Lanches",
-      "area": "Frontend",
-      "status": "Concluído",
-      "data_inicio": "2016-04-01T00:00:01.000Z",
-      "data_fim": "2016-04-10T23:59:59.000Z",
-      "url": "http://172.31.216.12:3000/projetos/1.json"
+  $scope.$on('projetos', function(event, objUsuarioProjeto){
 
-    },
-    {
+    $http({
+      url: 'projetos.json',
+      method: 'GET'
+    })
+    .then(function(response){
 
-      "id": 2,
-      "descricao": "Projeto Arduino",
-      "area": "Embarcado",
-      "status": "Andamento",
-      "data_inicio": "2016-04-03T03:00:01.000Z",
-      "data_fim": "2016-04-25T14:30:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/2.json"
+      for(var i=0; i<objUsuarioProjeto.length; i++){
+        for(var j=0; j<response.data.length; j++){
+          if(objUsuarioProjeto[i].id_projeto == response.data[j].id){
+            $scope.projetos.push(response.data[j]);
+            break;
+          }
+        }
+      }
 
-    },
-    {
+    })
+    .then(function(response){
 
-      "id": 3,
-      "descricao": "Monitor de tráfego aéreo",
-      "area": "51",
-      "status": "Andamento",
-      "data_inicio": "2016-04-03T03:00:01.000Z",
-      "data_fim": "2017-09-16T15:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/3.json"
+    });
 
-    },
-    {
+  });
 
-      "id": 4,
-      "descricao": "Análise aerodinâmica de aileron",
-      "area": "Aeroespacial",
-      "status": "Andamento",
-      "data_inicio": "2016-04-03T09:00:01.000Z",
-      "data_fim": "2017-09-16T14:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/4.json"
+  $scope.$on('usuario_projetos', function(event, id){
 
-    },
-    {
+    $http({
+      url: 'usuario_projetos.json',
+      method: 'GET'
+    })
+    .then(function(response){
 
-      "id": 5,
-      "descricao": "Aplicativo de aviso de processo",
-      "area": "Direito/Jurídica",
-      "status": "Andamento",
-      "data_inicio": "2016-04-13T09:00:01.000Z",
-      "data_fim": "2017-09-19T14:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/5.json"
+      for(var i=0; i<response.data.length; i++){
+        if(response.data[i].id_usuario == id){
+          $scope.usuario_projetos.push(response.data[i]);
+        }
+      }
 
-    },
-    {
+    })
+    .then(function(response){
 
-      "id": 6,
-      "descricao": "Estatística de desperdício de alimentos (RU)",
-      "area": "Alimentícia",
-      "status": "Andamento",
-      "data_inicio": "2015-04-03T09:00:01.000Z",
-      "data_fim": "2018-09-16T14:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/6.json"
+    });
 
-    },
-    {
+  });
 
-      "id": 7,
-      "descricao": "Tratamento de dados de batida de automóveis",
-      "area": "Automobilística",
-      "status": "Andamento",
-      "data_inicio": "2015-04-03T09:00:01.000Z",
-      "data_fim": "2020-09-16T14:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/7.json"
-
-    },
-    {
-
-      "id": 8,
-      "descricao": "Firewall com ajuste inteligente de risco",
-      "area": "IT",
-      "status": "Andamento",
-      "data_inicio": "2016-04-03T09:00:01.000Z",
-      "data_fim": "2016-09-16T14:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/8.json"
-
-    },
-    {
-
-      "id": 9,
-      "descricao": "Algoritmo aritmético para solução de PI",
-      "area": "Matemática",
-      "status": "Andamento",
-      "data_inicio": "2016-04-03T09:00:01.000Z",
-      "data_fim": "2017-09-16T14:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/9.json"
-
-    },
-    {
-
-      "id": 10,
-      "descricao": "Resolução de NP-difícil",
-      "area": "Matemática",
-      "status": "Andamento",
-      "data_inicio": "2016-04-03T09:00:01.000Z",
-      "data_fim": "2022-09-16T19:00:00.000Z",
-      "url": "http://172.31.216.12:3000/projetos/10.json"
-
-    }
-  ];
+  $rootScope.$broadcast('usuario_projetos', $scope.usuario.id);
+  $rootScope.$broadcast('projetos', $scope.usuario_projetos);
 
 });

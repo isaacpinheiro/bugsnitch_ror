@@ -12,26 +12,28 @@
     <div id="dash_projeto_div" ng-show="projetoDiv">
       <h1>Projetos</h1>
       <br />
-      <table width="900">
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Área</th>
-            <th>Status</th>
-            <th>Data de Início</th>
-            <th>Data de Finalização</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="p in projeto">
-            <td>{{ p.descricao }}</td>
-            <td>{{ p.area }}</td>
-            <td>{{ p.status }}</td>
-            <td>{{ p.data_inicio }}</td>
-            <td>{{ p.data_fim }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="height: 200px; overflow-y: auto;">
+        <table width="900">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Área</th>
+              <th>Status</th>
+              <th>Data de Início</th>
+              <th>Data de Finalização</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="p in projetos">
+              <td>{{ p.descricao }}</td>
+              <td>{{ p.area }}</td>
+              <td>{{ p.status }}</td>
+              <td>{{ p.data_inicio }}</td>
+              <td>{{ p.data_fim }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div id="dash_alterar_conta_div" ng-show="alterarContaDiv">
       <h3>Alterar informações da sua conta</h3>

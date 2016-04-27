@@ -397,12 +397,12 @@ ul, li {
     margin: 50px 0px 0px 50px;
   }
 
-  #dash_projeto_div>table>thead>tr>th{
+  #dash_projeto_div>div>table>thead>tr>th{
     background: #009999;
     color: #ffffff;
   }
 
-  #dash_projeto_div>table>tbody>tr>td{
+  #dash_projeto_div>div>table>tbody>tr>td{
     background: #ccccff;
   }
 
