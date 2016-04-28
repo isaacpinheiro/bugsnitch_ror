@@ -1,6 +1,8 @@
 class ContatoMailer < ApplicationMailer
-  def contato_message(contact)
-    @contact = contact
-    mail(:to => 'bugsnitch@gmail.com', :subject => 'Mensagem de Contato - BugSnitch')
+  default from: "bugsnitch@gmail.com"
+
+  def sample_email(contato)
+    @contato = contato
+    mail(to: "bugsnitch@gmail.com", subject: "Contato BugSnitch - #{@contato.nome}")
   end
 end

@@ -1,4 +1,4 @@
 json.array!(@contatos) do |contato|
-  json.extract! contato, :id, :name, :email, :subject, :message
+  json.extract! contato, :id, :nome, :telefone, :email, :mensagem
   json.url contato_url(contato, format: :json)
 end

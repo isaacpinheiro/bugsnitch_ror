@@ -232,11 +232,13 @@ app.controller('ContatoController', function($scope, $http){
 
     }else{
 
-      $scope.errMsg = '';
+      $scope.errMsg = 'Enviando ...';
 
       $scope.emailObj = {
-        subject: 'Mensagem de Contato - BugSnitch',
-        message: 'Nome: '+$scope.nome+'\nTelefone: '+$scope.telefone+'\nE-mail: '+$scope.email+'\nMensage:\n'+$scope.mensagem
+        nome: $scope.nome,
+        telefone: $scope.telefone,
+        email: $scope.email,
+        mensagem: $scope.mensagem
       }
 
       $http({
@@ -246,6 +248,10 @@ app.controller('ContatoController', function($scope, $http){
       })
       .then(function(response){
         $scope.errMsg = 'Informações enviadas com sucesso.';
+        $scope.nome = '';
+        $scope.telefone = '';
+        $scope.email = '';
+        $scope.mensagem = '';
       })
       .then(function(response){
 
